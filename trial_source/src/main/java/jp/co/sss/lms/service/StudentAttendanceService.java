@@ -337,7 +337,7 @@ public class StudentAttendanceService {
 	/**
 	 * 勤怠未入力確認
 	 * @author 諏訪智也 – Task.25
-	 * @return 
+	 * @return 勤怠未入力有無
 	 */
 	public boolean notEnterCheck() throws ParseException{
 		
