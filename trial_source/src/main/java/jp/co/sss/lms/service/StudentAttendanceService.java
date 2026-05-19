@@ -334,4 +334,22 @@ public class StudentAttendanceService {
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
 
+	/**
+	 * 勤怠未入力確認
+	 * @author 諏訪智也 – Task.25
+	 * @return 
+	 */
+	public boolean notEnterCheck() throws ParseException{
+		
+		//現在日付取得
+		String todayStr = dateUtil.toString(new Date());
+		Date today = dateUtil.parse(todayStr);
+		
+		//勤怠情報（受講生入力）未入力の判定
+		if(tStudentAttendanceMapper.notEnterCount(loginUserDto.getLmsUserId(), Constants.DB_FLG_FALSE, today) > 0) {
+			return true;
+		}
+		return false;
+	}
+
 }
