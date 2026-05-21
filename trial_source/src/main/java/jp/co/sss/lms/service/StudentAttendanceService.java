@@ -374,16 +374,16 @@ public class StudentAttendanceService {
 	public void formatConversion(AttendanceForm attendanceForm) {
 		for (DailyAttendanceForm dailyAttendanceForm : attendanceForm.getAttendanceList()) {
 			//出勤時間（時）と出勤時間（分）を結合して出勤時間に設定
-			if (dailyAttendanceForm.getTrainingStartTimeHour() != null 
-					&& dailyAttendanceForm.getTrainingStartTimeMinute() != null ) {
+			if (dailyAttendanceForm.getTrainingStartTimeHour() != null
+					&& dailyAttendanceForm.getTrainingStartTimeMinute() != null) {
 				dailyAttendanceForm
 						.setTrainingStartTime(
 								dailyAttendanceForm.getTrainingStartTimeHour() + ":"
 										+ dailyAttendanceForm.getTrainingStartTimeMinute());
 			}
 			//退勤時間（時）と退勤時間（分）を結合して退勤時間に設定
-			if (dailyAttendanceForm.getTrainingEndTimeHour() != null 
-					&& dailyAttendanceForm.getTrainingEndTimeMinute() != null ) {
+			if (dailyAttendanceForm.getTrainingEndTimeHour() != null
+					&& dailyAttendanceForm.getTrainingEndTimeMinute() != null) {
 				dailyAttendanceForm
 						.setTrainingEndTime(dailyAttendanceForm.getTrainingEndTimeHour()
 								+ ":" + dailyAttendanceForm.getTrainingEndTimeMinute());
