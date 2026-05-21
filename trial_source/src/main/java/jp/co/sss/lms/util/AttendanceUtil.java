@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.LinkedHashMap;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -147,4 +148,65 @@ public class AttendanceUtil {
 		return false;
 	}
 
+	/**
+	 * 時間マップ取得
+	 * 
+	 * @author 諏訪智也 – Task.26
+	 * @return 1時間刻みの時間(数値)マップ
+	 */
+	public LinkedHashMap<Integer, String> getHourMap() {
+		LinkedHashMap<Integer, String> map = new LinkedHashMap<Integer, String>();
+		map.put(null, "");
+		for (int i = 0; i < 24; i++) {
+			map.put(i, String.format("%02d", i));
+		}
+		return map;
+	}
+
+	/**
+	 * 分マップ取得
+	 * 
+	 * @author 諏訪智也 – Task.26
+	 * @return 1分刻みの分(数値)マップ
+	 */
+	public LinkedHashMap<Integer, String> getMinuteMap() {
+		LinkedHashMap<Integer, String> map = new LinkedHashMap<Integer, String>();
+		map.put(null, "");
+		for (int i = 0; i < 60; i++) {
+			map.put(i, String.format("%02d", i));
+		}
+		return map;
+	}
+
+	/**
+	 * 時間(時)の切り出し
+	 * 
+	 * @author 諏訪智也 – Task.26
+	 * @param timeString 開始時刻or終了時刻
+	 * @return 出退勤時間(時間)
+	 */
+	public Integer getHour(String timeString) {
+		if(StringUtils.isEmpty(timeString)) {
+			return null;
+		}
+		//"01:34"の01を抜き出す
+		Integer hour = Integer.parseInt(timeString.substring(0, 2));
+		return hour;
+	}
+
+	/**
+	 * 時間(分)の切り出し
+	 * 
+	 * @author 諏訪智也 – Task.26
+	 * @param timeString 開始時刻or終了時刻
+	 * @return 出退勤時間(分)
+	 */
+	public Integer getMinute(String timeString) {
+		if(StringUtils.isEmpty(timeString)) {
+			return null;
+		}
+		//"01:34"の34を抜き出す
+		Integer minute = Integer.parseInt(timeString.substring(3, 5));
+		return minute;
+	}
 }

@@ -143,6 +143,9 @@ public class AttendanceController {
 	public String complete(AttendanceForm attendanceForm, Model model, BindingResult result)
 			throws ParseException {
 
+		//諏訪智也 – Task.26
+		//時間（時）と時間（分）を結合
+		studentAttendanceService.formatConversion(attendanceForm);
 		// 更新
 		String message = studentAttendanceService.update(attendanceForm);
 		model.addAttribute("message", message);
