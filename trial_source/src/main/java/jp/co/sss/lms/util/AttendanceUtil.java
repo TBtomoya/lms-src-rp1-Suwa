@@ -186,7 +186,7 @@ public class AttendanceUtil {
 	 * @return 出退勤時間(時間)
 	 */
 	public Integer getHour(String timeString) {
-		if(StringUtils.isEmpty(timeString)) {
+		if (StringUtils.isEmpty(timeString)) {
 			return null;
 		}
 		//"01:34"の01を抜き出す
@@ -202,7 +202,7 @@ public class AttendanceUtil {
 	 * @return 出退勤時間(分)
 	 */
 	public Integer getMinute(String timeString) {
-		if(StringUtils.isEmpty(timeString)) {
+		if (StringUtils.isEmpty(timeString)) {
 			return null;
 		}
 		//"01:34"の34を抜き出す
