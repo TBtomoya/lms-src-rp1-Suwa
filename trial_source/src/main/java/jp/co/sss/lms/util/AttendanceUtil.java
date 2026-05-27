@@ -209,4 +209,29 @@ public class AttendanceUtil {
 		Integer minute = Integer.parseInt(timeString.substring(3, 5));
 		return minute;
 	}
+	
+	/**
+	 * 受講時間数を算出
+	 * 
+	 * @author 諏訪智也 – Task.27
+	 * @param startTime 受講開始時間
+	 * @param endTime 受講終了時間
+	 * @return 受講時間数 
+	 */
+	public TrainingTime calcJukoTime(TrainingTime startTime, TrainingTime endTime) {
+		return endTime.subtract(startTime);
+	}
+
+	/**
+	 * 中抜け時間(文字列)を数字に変換
+	 * 
+	 * @author 諏訪智也 – Task.27
+	 * @param blankTimeStr 中抜け時間(文字列)
+	 * @return 中抜け時間(数値)
+	 * @throws ParseException
+	 */
+	public Integer reverseBlankTime(String blankTimeStr) throws ParseException {
+		Integer blankTime = Integer.parseInt(blankTimeStr);
+		return blankTime;
+	}
 }
